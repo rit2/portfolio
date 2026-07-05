@@ -5,8 +5,7 @@ export default function About() {
     <section className="about" id="about">
       <h2 className="section-title">About Me</h2>
       <p>
-        I'm a self-taught developer working through The Odin Project curriculum.
-        I enjoy building clean, functional web apps and learning by doing.
+      I'm a full-stack developer with a professional certificate from UT Austin. I build responsive web apps with React, Node.js, and MongoDB, and I'm passionate about creating useful products.
       </p>
       <div className="skills">
         {skills.map((s) => (
