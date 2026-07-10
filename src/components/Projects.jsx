@@ -1,4 +1,4 @@
-// Projects.jsx
+import { useState, useEffect, useCallback } from "react";
 import "./Projects.css";
 
 const projects = [
@@ -9,7 +9,7 @@ const projects = [
     tech: ["HTML", "CSS"],
     thumbnail: "/thumbnails/solar-system.jpg",
     github: "#",
-    live: "http://127.0.0.1:5500/solar/index.html", // update with hosted URL when deployed
+    live: "http://127.0.0.1:5500/solar/index.html",
   },
   {
     title: "To-Do App",
@@ -41,29 +41,64 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const close = useCallback(() => setActiveIndex(null), []);
+
+  const goNext = useCallback(() => {
+    setActiveIndex((i) => (i + 1) % projects.length);
+  }, []);
+
+  const goPrev = useCallback(() => {
+    setActiveIndex((i) => (i - 1 + projects.length) % projects.length);
+  }, []);
+
+  useEffect(() => {
+    if (activeIndex === null) return;
+
+    function handleKey(e) {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    }
+
+    document.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [activeIndex, close, goNext, goPrev]);
+
+  const activeProject = activeIndex !== null ? projects[activeIndex] : null;
+
   return (
     <section className="projects" id="projects">
       <h2 className="section-title">Projects</h2>
       <div className="projects-grid">
-        {projects.map((p) => (
+        {projects.map((p, i) => (
           <div key={p.title} className="project-card">
-
             {/* Thumbnail */}
             {p.thumbnail && (
-              <div className="project-thumbnail">
+              <div
+                className="project-thumbnail"
+                onClick={() => setActiveIndex(i)}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${p.title} fullscreen`}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActiveIndex(i);
+                  }
+                }}
+              >
                 <img src={p.thumbnail} alt={`${p.title} screenshot`} loading="lazy" />
-                {p.live !== "#" && (
-                  <a
-                    href={p.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="thumbnail-overlay"
-                    aria-label={`Open ${p.title} live demo`}
-                  >
-                    <span className="overlay-icon">↗</span>
-                    <span className="overlay-label">View Live</span>
-                  </a>
-                )}
+                <div className="thumbnail-overlay">
+                  <span className="overlay-icon">⛶</span>
+                  <span className="overlay-label">View Fullscreen</span>
+                </div>
               </div>
             )}
 
@@ -85,10 +120,42 @@ export default function Projects() {
                 )}
               </div>
             </div>
-
           </div>
         ))}
       </div>
+
+      {/* Fullscreen Modal */}
+      {activeProject && (
+        <div className="lightbox" onClick={close} role="dialog" aria-modal="true" aria-label={`${activeProject.title} fullscreen view`}>
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={activeProject.thumbnail}
+              alt={`${activeProject.title} screenshot`}
+              className="lightbox-img"
+            />
+
+            {/* Info bar */}
+            <div className="lightbox-info">
+              <h3>{activeProject.title}</h3>
+              <div className="lightbox-links">
+                {activeProject.github !== "#" && (
+                  <a href={activeProject.github} target="_blank" rel="noreferrer">GitHub</a>
+                )}
+                {activeProject.live !== "#" && (
+                  <a href={activeProject.live} target="_blank" rel="noreferrer">Live ↗</a>
+                )}
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <button className="lightbox-nav lightbox-prev" onClick={goPrev} aria-label="Previous project">‹</button>
+            <button className="lightbox-nav lightbox-next" onClick={goNext} aria-label="Next project">›</button>
+          </div>
+
+          {/* Close button */}
+          <button className="lightbox-close" onClick={close} aria-label="Close fullscreen view">✕</button>
+        </div>
+      )}
     </section>
   );
 }
