@@ -54,11 +54,16 @@ section, footer { max-width: 800px; margin: 0 auto; padding: 80px 24px; }
   color: var(--accent);
 }
 
-/* Projects */
+/* Projects — full-width override */
+.projects {
+  max-width: 100%;
+  padding: 80px 48px;
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
 }
 
 /* About */

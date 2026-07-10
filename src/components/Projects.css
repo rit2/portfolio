@@ -3,23 +3,24 @@
 .project-card {
   background: var(--bg2);
   border: 1px solid var(--card);
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, border-color 0.2s;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 
 .project-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--accent);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 /* ── Thumbnail ────────────────────────────────── */
 .project-thumbnail {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #0a1628;
   cursor: pointer;
@@ -35,7 +36,7 @@
 }
 
 .project-card:hover .project-thumbnail img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 /* Hover overlay — appears on thumbnail hover */
@@ -73,15 +74,15 @@
 
 /* ── Card body ───────────────────────────────── */
 .project-body {
-  padding: 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   flex: 1;
 }
 
 .project-body h3 {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--text);
 }
 
