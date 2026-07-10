@@ -104,10 +104,6 @@ export default function Projects() {
                 }}
               >
                 <img src={p.thumbnail} alt={`${p.title} screenshot`} loading="lazy" />
-                <div className="thumbnail-overlay">
-                  <span className="overlay-icon">⛶</span>
-                  <span className="overlay-label">View Fullscreen</span>
-                </div>
               </div>
             )}
 
