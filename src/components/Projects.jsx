@@ -8,8 +8,8 @@ const projects = [
       "An animated solar system built with pure HTML and CSS. All 8 planets orbit the Sun with accurate relative speeds, Saturn's rings, a Moon orbiting Earth, and a responsive design that scales to any screen size.",
     tech: ["HTML", "CSS"],
     thumbnail: "/thumbnails/solar-system.jpg",
-    github: "#",
-    live: "http://127.0.0.1:5500/solar/index.html",
+    github: "https://github.com/rit2/solar-system",
+    live: "https://rit2.github.io/solar-system/",
   },
   {
     title: "To-Do App",
@@ -18,7 +18,7 @@ const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     thumbnail: "/thumbnails/todo-app.jpg",
     github: "https://github.com/rit2/to-do",
-    live: "#",
+    live: "https://rit2.github.io/to-do/",
   },
   {
     title: "Netflix Login Clone",
@@ -26,8 +26,8 @@ const projects = [
       "A pixel-perfect Netflix login page clone built with HTML and CSS. Features a two-panel split layout — sign-in form on the left with dark inputs and a red focus ring, and a signup prompt panel on the right with a red gradient. Fully responsive with a CSS Grid layout that stacks to a single column on mobile.",
     tech: ["HTML", "CSS"],
     thumbnail: "/thumbnails/netflix-login.jpg",
-    github: "#",
-    live: "#",
+    github: "https://github.com/rit2/netflix-login",
+    live: "https://rit2.github.io/netflix-login/",
   },
   {
     title: "Math Tug!",
@@ -35,8 +35,17 @@ const projects = [
       "A two-player math game where kids race to answer addition and subtraction questions. Each correct answer pulls the tug-of-war rope toward your side — first to 5 wins. Features animated rope pulls, vintage pastel keypads, and a responsive layout.",
     tech: ["HTML", "CSS", "JavaScript"],
     thumbnail: "/thumbnails/tug-of-war-math.jpg",
-    github: "#",
-    live: "#",
+    github: "https://github.com/rit2/math-tug",
+    live: "https://rit2.github.io/math-tug/",
+  },
+  {
+    title: "Menu",
+    description:
+      "A restaurant menu page with a clean layout and styling.",
+    tech: ["HTML", "CSS"],
+    thumbnail: "/thumbnails/menu.jpg",
+    github: "https://github.com/rit2/menu",
+    live: "https://rit2.github.io/menu/",
   },
 ];
 
