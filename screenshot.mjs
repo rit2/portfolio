@@ -22,6 +22,11 @@ const projects = [
   { slug: "menu",             path: "/Users/rithvicca/Projects/Portfolio Projects/menu" },
 ];
 
+// Projects hosted remotely (screenshot from live URL, not local static files)
+const remoteProjects = [
+  { slug: "twinklepod", url: "https://twinklepod.vercel.app/" },
+];
+
 // Tiny static file server
 function serveFolder(folder) {
   const MIME = {
@@ -68,6 +73,17 @@ async function screenshot(browser, url, outPath, waitMs = 1500) {
       console.error(`  ✗ failed: ${e.message}`);
     } finally {
       server.close();
+    }
+  }
+
+  // Remote projects (live URLs, no local server needed)
+  for (const { slug, url } of remoteProjects) {
+    console.log(`\n→ ${slug} (${url})`);
+    const outPath = join(THUMB_DIR, `${slug}.jpg`);
+    try {
+      await screenshot(browser, url, outPath, 2500);
+    } catch (e) {
+      console.error(`  ✗ failed: ${e.message}`);
     }
   }
 

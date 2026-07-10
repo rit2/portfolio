@@ -3,6 +3,15 @@ import "./Projects.css";
 
 const projects = [
   {
+    title: "TwinklePod",
+    description:
+      "A free digital children's book library. Browse by age, reading level, or theme. Features an immersive reader with dark mode and progress tracking, user accounts with favorites and achievements, and an admin dashboard. Full-stack with JWT auth and Cloudinary image uploads.",
+    tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    thumbnail: "/thumbnails/twinklepod.jpg",
+    github: "https://github.com/rit2/twinklepod",
+    live: "https://twinklepod.vercel.app/",
+  },
+  {
     title: "Solar System",
     description:
       "An animated solar system built with pure HTML and CSS. All 8 planets orbit the Sun with accurate relative speeds, Saturn's rings, a Moon orbiting Earth, and a responsive design that scales to any screen size.",
