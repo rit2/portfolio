@@ -14,11 +14,12 @@ const VIEWPORT = { width: 1280, height: 800 };
 
 // Map: output filename → absolute path to project folder (must contain index.html)
 const projects = [
-  { slug: "solar-system",     path: "/Users/rithvicca/solar" },
+  { slug: "solar-system",     path: "/Users/rithvicca/Projects/Portfolio Projects/Solar System" },
   { slug: "storysprout",      path: "/Users/rithvicca/Projects/StorySprout" },
   { slug: "techtimemachine",  path: "/Users/rithvicca/Projects/TechTimeMachine" },
-  { slug: "todo-app",         path: "/Users/rithvicca/Projects/to-do" },
+  { slug: "todo-app",         path: "/Users/rithvicca/Projects/Portfolio Projects/to-do" },
   { slug: "tudu",             path: "/Users/rithvicca/Projects/tudu-task-management-2" },
+  { slug: "menu",             path: "/Users/rithvicca/Projects/Portfolio Projects/menu" },
 ];
 
 // Tiny static file server
