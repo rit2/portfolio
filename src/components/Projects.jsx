@@ -121,9 +121,6 @@ export default function Projects() {
                 ))}
               </div>
               <div className="project-links">
-                {p.github !== "#" && (
-                  <a href={p.github} target="_blank" rel="noreferrer">GitHub</a>
-                )}
                 {p.live !== "#" && (
                   <a href={p.live} target="_blank" rel="noreferrer">Live ↗</a>
                 )}
@@ -147,9 +144,6 @@ export default function Projects() {
             <div className="lightbox-info">
               <h3>{activeProject.title}</h3>
               <div className="lightbox-links">
-                {activeProject.github !== "#" && (
-                  <a href={activeProject.github} target="_blank" rel="noreferrer">GitHub</a>
-                )}
                 {activeProject.live !== "#" && (
                   <a href={activeProject.live} target="_blank" rel="noreferrer">Live ↗</a>
                 )}
